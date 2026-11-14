@@ -1,58 +1,128 @@
 # Examen Final – Aseguramiento de la Calidad del Software
 
-## Estructura inicial
+## Proyecto: Buggy Cars Rating
 
-Este repositorio contiene únicamente la configuración base de Playwright y las carpetas para organizar el trabajo del examen. **No incluye pruebas automatizadas desarrolladas**, de acuerdo con las indicaciones del ingeniero.
+### 1. Descripción
 
-## Requisitos
+Este proyecto contiene las pruebas de aseguramiento de calidad realizadas sobre la aplicación web **Buggy Cars Rating**, utilizando Playwright con TypeScript.
 
-- Node.js y npm instalados.
-- Visual Studio Code (o editor equivalente).
-- Git instalado.
-- Cuenta de GitHub.
+Se desarrollaron cinco casos de prueba: tres automatizados y dos manuales, basados en las historias de usuario proporcionadas para el examen final.
 
-## Preparar el proyecto
+### 2. Tecnologías utilizadas
+
+- **Playwright:** automatización de pruebas.
+- **TypeScript:** lenguaje utilizado para los scripts.
+- **Node.js y npm:** entorno de ejecución y administración de dependencias.
+- **Chromium:** navegador utilizado para ejecutar las pruebas.
+- **Visual Studio Code:** editor de código.
+
+### 3. Requisitos previos
+
+Antes de ejecutar el proyecto, es necesario tener instalado:
+
+- Node.js (versión LTS recomendada).
+- npm.
+- Visual Studio Code (opcional, para editar el proyecto).
+
+### 4. Instalación
+
+Clonar o descargar el repositorio y abrir la carpeta del proyecto en una terminal.
+
+Instalar las dependencias:
 
 ```bash
 npm install
+```
+
+Instalar el navegador Chromium de Playwright:
+
+```bash
 npx playwright install chromium
 ```
 
-## Configurar la URL del sitio
+### 5. Ejecución de las pruebas
 
-En PowerShell, antes de ejecutar las pruebas:
-
-```powershell
-$env:BASE_URL="https://URL-DEL-SITIO"
-```
-
-También puedes colocar la URL directamente en `playwright.config.ts` si así lo prefieres durante el examen.
-
-## Ejecutar las pruebas
+Ejecutar todos los casos automatizados:
 
 ```bash
 npx playwright test
 ```
 
-Abrir el reporte HTML:
+Ejecutar las pruebas con interfaz gráfica:
+
+```bash
+npx playwright test --ui
+```
+
+Ejecutar las pruebas mostrando el navegador:
+
+```bash
+npx playwright test --headed
+```
+
+### 6. Reporte de resultados
+
+Para consultar el reporte HTML generado por Playwright:
 
 ```bash
 npx playwright show-report
 ```
 
-## Organización del examen
+El proyecto utiliza los siguientes mecanismos de evidencia:
 
-- `tests/`: aquí se crearán durante el examen las 3 pruebas automatizadas.
-- `evidencias/automaticas/`: capturas y trazas relacionadas con las pruebas automatizadas.
-- `evidencias/manuales/`: capturas de las 2 pruebas exploratorias manuales.
-- `casos-de-prueba/`: documentación de los casos de prueba.
-- `Documentos/`: documentos de apoyo o plantillas indicadas por el ingeniero.
-- `reportes/`: documentación de defectos e incidencias.
-- `playwright.config.ts`: configuración inicial de Playwright.
-- `.github/workflows/`: configuración opcional de ejecución en GitHub Actions.
+- Capturas de pantalla.
+- Trazas de ejecución cuando ocurre un fallo.
+- Reporte HTML de Playwright.
+- Registro de resultados de los casos manuales y automatizados en Excel.
 
-## Recordatorio de entrega
+### 7. Casos de prueba incluidos
 
-Según las indicaciones del examen, se debe entregar el repositorio con las pruebas automáticas y compartir un enlace de Google Drive que contenga el Excel y el Word solicitados. Los errores reportados deben coincidir entre la documentación y GitHub Issues.
+| Código | Tipo | Descripción |
+|---|---|---|
+| AUT-01 | Automatizada | Verificar que el sistema impida el registro cuando las contraseñas no coinciden. |
+| AUT-02 | Automatizada | Verificar el registro con una contraseña de 6 caracteres que cumple HU-1 C2. |
+| AUT-03 | Automatizada | Verificar el mensaje informativo al intentar votar sin iniciar sesión. |
+| MAN-01 | Manual | Verificar el cambio de contraseña utilizando una clave de 8 caracteres. |
+| MAN-02 | Manual | Verificar que el sistema impida guardar el perfil con el nombre vacío. |
 
-**Importante:** no registrar como defecto algo que no se haya reproducido y verificado. Completar los casos, evidencias, reportes y GitHub Issues durante el examen.
+**Nota:** AUT-02 presentó un resultado diferente al esperado según HU-1 C2. Este comportamiento fue registrado como un defecto y no se modificó la prueba para forzar su aprobación.
+
+### 8. Estructura del proyecto
+
+```text
+qa-examen-final/
+│
+├── casos-de-prueba/
+├── Documentos/
+├── evidencias/
+├── fixtures/
+├── helpers/
+├── pages/
+├── reportes/
+├── tests/
+│
+├── playwright.config.ts
+├── package.json
+├── package-lock.json
+├── tsconfig.json
+└── README.md
+```
+
+### 9. Entregables del examen
+
+Los documentos y archivos de evidencia del examen se encuentran disponibles en la siguiente carpeta de Google Drive:
+
+**Carpeta de entregables:**
+
+https://drive.google.com/drive/folders/1nvpM-qhdNAry8NGZ1eBBstkaP882VJEH?usp=sharing
+
+En esta carpeta se almacenarán los casos de prueba ejecutados, los reportes de errores, las evidencias y demás documentos correspondientes al examen final.
+
+### 10. Sitio web probado
+
+https://buggy.justtestit.org/
+
+---
+
+**Examen Final – Aseguramiento de la Calidad del Software**  
+Proyecto de pruebas: Buggy Cars Rating
