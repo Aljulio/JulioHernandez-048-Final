@@ -1,0 +1,18 @@
+{
+  "name": "qa-examen-final",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Estructura base para el examen final de Aseguramiento de la Calidad del Software",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.1.1"
+  }
+}

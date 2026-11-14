@@ -1,0 +1,14 @@
+# Dependencias
+node_modules/
+
+# Resultados generados por Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+# Configuración local
+.env
+.env.*
+!.env.example
